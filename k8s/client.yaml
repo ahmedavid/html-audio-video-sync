@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sync-demo-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sync-demo
+  template:
+    metadata:
+      labels:
+        app: sync-demo
+    spec:
+      containers:
+        - name: sync-demo
+          image: ahmedavid/sync-demo:latest
+          ports:
+            - containerPort: 8080
